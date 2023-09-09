@@ -3,19 +3,25 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>Peakniq Adventure</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bebas+Neue">
-    <style> html, body {height: 100%;}</style>
+    <style> html, body {height: 100%; background: linear-gradient(to bottom, #202020, #111119); overflow: hidden;}</style>
   </head>
   <body>
-    <div class="w-100 h-100 d-inline-block bg-dark vh-100" >
+    <div class="w-100 h-100 d-inline-block vh-100" >
         <div class="align-self-center text-center mt-5" style="inline-block; vertical-align: middle; height: 100%">
-            <p class="mt-5 pt-5 text-white" style="font-family:'Bebas Neue';">Stay tuned! We are gonna release</p>
-            <img src="/peakniq-logo-white.png" class="img-fluid w-25 mb-5">
-            <p class="font-monospace text-white mt-5">"Embrace the adventure of life, for at its peak, your unique colors paint a breathtaking masterpiece of existence."</p>
+            <p class="mt-5 text-white text-uppercase">Gonna Release!</p>
+            <img src="images/peakniq-logo-white.png" class="img-fluid w-25 mb-5">
+            <p class="font-monospace text-white mt-5">"Embrace the adventure of life, for at its <mark>peak</mark>, your <mark>unique</mark> colors paint a breathtaking masterpiece of existence."</p>
+            <br>
+            <button class="btn btn-warning fw-bolder" id="music-play">&#9658;</button>
         </div>
     </div>
+    <div class="audio-play"><div data-video="FRo_9RMm5q8" data-autoplay="0" data-loop="0" id="youtube-audio1"></div></div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script>var player1,tag=document.createElement("script");tag.src="https://www.youtube.com/iframe_api";var firstScriptTag=document.getElementsByTagName("script")[0];function onYouTubeIframeAPIReady(){var e=document.getElementById("youtube-audio1");e.innerHTML='<img id="youtube-icon1" src=""/><div id="youtube-player1"></div>',e.style.cssText="width:20px;margin:0 auto;cursor:pointer;cursor:hand;display:none",e.onclick=toggleAudio1,player1=new YT.Player("youtube-player1",{height:"0",width:"0",videoId:e.dataset.video,playerVars:{autoplay:e.dataset.autoplay,loop:e.dataset.loop},events:{onReady:onPlayerReady1,onStateChange:onPlayerStateChange1}})}function togglePlayButton1(e){document.getElementById("youtube-icon1").src=e?"images/audio-pause.png":"images/audio-play.png"}function toggleAudio1(){1==player1.getPlayerState()||3==player1.getPlayerState()?(player1.pauseVideo(),togglePlayButton1(!1)):(player1.playVideo(),togglePlayButton1(!0))}function playAudio1(){1==player1.getPlayerState()||3==player1.getPlayerState()||(player1.playVideo(),togglePlayButton1(!0))}function onPlayerReady1(e){player1.setPlaybackQuality("small"),document.getElementById("youtube-audio1").style.display="block",togglePlayButton1(5!==player1.getPlayerState())}function onPlayerStateChange1(e){0===e.data&&togglePlayButton1(!1)}firstScriptTag.parentNode.insertBefore(tag,firstScriptTag);</script>
+    <script type="text/javascript">$("#music-play").click(function(){$("#music-play").hide(),playAudio1()});</script>
   </body>
 </html>
